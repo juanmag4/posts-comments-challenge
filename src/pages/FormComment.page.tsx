@@ -1,11 +1,39 @@
 import React from 'react';
+import { useForm } from "react-hook-form";
+import { useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { ADD_COMMENT } from '../redux/actions/types';
+
+interface FormData {
+  name: string;
+  email: string;
+  body: string;
+};
 
 export const FormComment = () => {
+  const { postId }: any = useParams();
+  const dispatch = useDispatch();
+  const { register, handleSubmit } = useForm<FormData>();
+
+  const onSubmit = handleSubmit(({ name, email, body }) => {
+    dispatch({ type: ADD_COMMENT, payload: { name, email, body, postId } });
+  });
+
   return (
-    <form>
-      <div>
-        FORM!!
+    <form className="ui form" onSubmit={onSubmit}>
+      <div className="field">
+        <label>Name</label>
+        <input type="text" placeholder="Name" {...register("name", { required: true, maxLength: 50 })} />
       </div>
+      <div className="field">
+        <label>Email</label>
+        <input type="text" placeholder="Email" {...register("email", { required: true, maxLength: 50 })} />
+      </div>
+      <div className="field">
+        <label>Comment</label>
+        <textarea rows={10} {...register("body", { required: true })}></textarea>
+      </div>
+      <button className="ui button" type="submit">Add Comment</button>
     </form>
   )
 };

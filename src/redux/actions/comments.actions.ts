@@ -6,7 +6,10 @@ export const fetchComments = (postId: number) => async (dispatch: any) => {
 
   try {
     const response = await axios.get(`/comments?postId=${postId}`);
-    dispatch({ type: FETCH_COMMENTS_SUCCESS, payload: response.data });
+    dispatch({
+      type: FETCH_COMMENTS_SUCCESS,
+      payload: { comments: response.data, postId }
+    });
   } catch (error) {
     dispatch({ type: FETCH_COMMENTS_FAIL });
   }

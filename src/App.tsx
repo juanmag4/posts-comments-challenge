@@ -8,22 +8,28 @@ import {
 import './App.css';
 import { CommentsPage } from './pages/Comments.page';
 import { HomePage } from './pages/Home.page';
+import { FormComment } from './pages/FormComment.page';
 
 function App() {
   return (
     <Router>
-      <div>
-        <Link to="/">POSTS</Link>
+      <div className="ui container">
+        <div>
+          <Link to="/">POSTS</Link>
+        </div>
+        <Switch>
+          <Route path="/add-comment/:postId">
+            <FormComment />
+          </Route>
+          <Route path="/comments/:postId">
+            <CommentsPage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
       </div>
-      <Switch>
-        <Route path="/comments/:postId">
-          <CommentsPage />
-        </Route>
-        <Route path="/">
-          <HomePage />
-        </Route>
-      </Switch>
-    </Router>
+    </Router >
   );
 }
 

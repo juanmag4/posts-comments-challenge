@@ -16,7 +16,7 @@ export const CommentsPage = () => {
 
   return (
     <div>
-      {comments.map((comment: IComment) => <Comment {...comment} />)}
+      {comments.map((comment: IComment) => <Comment key={comment.name} {...comment} />)}
     </div>
   )
 };

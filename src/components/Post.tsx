@@ -4,11 +4,19 @@ import { IPost } from '../interfaces/posts.interfaces';
 
 export const Post = ({ body, title, id }: IPost) => {
   return (
-    <Link to={`/comments/${id}`}>
-      <div style={{ margin: '20px' }}>
-        <h3>{title}</h3>
+    <div className="ui card">
+      <div className="content">
+        <div className="header">{title}</div>
+      </div>
+      <div className="content">
         <p>{body}</p>
       </div>
-    </Link>
+      <div className="extra content">
+        <div style={{ display: 'flex' }}>
+          <Link to={`/comments/${id}`} className="ui button">See Comments</Link>
+          <Link to={`/add-comment/${id}`} className="ui button">Add Comments</Link>
+        </div>
+      </div>
+    </div>
   )
 };
