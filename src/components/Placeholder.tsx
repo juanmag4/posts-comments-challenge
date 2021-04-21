@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Placeholder = () => {
+export const Placeholder: FC = () => {
   return (
     <div className="ui one column stackable grid">
       <div className="column">

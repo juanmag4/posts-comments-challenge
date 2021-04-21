@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { IComment } from '../interfaces/comment.interfaces';
 
-export const Comment = ({ body, email, name }: IComment) => {
+export const Comment: FC<IComment> = ({ body, email, name }) => {
   return (
     <div className="comment">
       <div className="avatar">

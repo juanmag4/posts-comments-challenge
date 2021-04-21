@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { IPost } from '../interfaces/posts.interfaces';
 
-export const Post = ({ body, title, id }: IPost) => {
+export const Post: FC<IPost> = ({ body, title, id }) => {
   return (
     <div className="ui card">
       <div className="content">

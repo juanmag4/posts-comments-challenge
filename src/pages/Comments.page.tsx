@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, FC } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Comment } from '../components/Comment';
@@ -7,7 +7,7 @@ import { Store } from '../interfaces/redux.interfaces';
 import { AppDispatch } from '../redux';
 import { Placeholder } from '../components/Placeholder';
 
-export const CommentsPage = () => {
+export const CommentsPage: FC = () => {
   const { postId }: any = useParams();
   const dispatch: AppDispatch = useDispatch();
   const { comments, loading } = useSelector((store: Store) => store.comments);

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Post } from '../components/Post';
 import { Store } from '../interfaces/redux.interfaces';
@@ -6,7 +6,7 @@ import { AppDispatch } from '../redux';
 import { fetchPosts } from '../redux/actions/posts.actions';
 import { Placeholder } from '../components/Placeholder';
 
-export const HomePage = () => {
+export const HomePage: FC = () => {
   const dispatch: AppDispatch = useDispatch();
   const { posts, loading } = useSelector((store: Store) => store.posts);
 

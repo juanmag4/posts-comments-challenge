@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useForm } from "react-hook-form";
 import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -6,7 +6,7 @@ import { ADD_COMMENT } from '../redux/actions/types';
 import { FormData } from '../interfaces/formComment.interfaces';
 import { AppDispatch } from '../redux';
 
-export const FormComment = () => {
+export const FormComment: FC = () => {
   const { postId }: any = useParams();
   const history = useHistory();
   const dispatch: AppDispatch = useDispatch();
