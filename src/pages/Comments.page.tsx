@@ -15,7 +15,8 @@ export const CommentsPage = () => {
   }, []);
 
   return (
-    <div>
+    <div className="ui comments">
+      <h3 className="ui dividing header">Comments</h3>
       {comments.map((comment: IComment) => <Comment key={comment.name} {...comment} />)}
     </div>
   )

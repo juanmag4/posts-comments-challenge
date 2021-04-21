@@ -1,22 +1,19 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ADD_COMMENT } from '../redux/actions/types';
-
-interface FormData {
-  name: string;
-  email: string;
-  body: string;
-};
+import { FormData } from '../interfaces/formComment.interfaces';
 
 export const FormComment = () => {
   const { postId }: any = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm<FormData>();
 
   const onSubmit = handleSubmit(({ name, email, body }) => {
     dispatch({ type: ADD_COMMENT, payload: { name, email, body, postId } });
+    history.push(`/comments/${postId}`);
   });
 
   return (

@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   loading: false
 };
 
-export default function (state: any = INITIAL_STATE, action: any) {
+export default function postReducer(state: any = INITIAL_STATE, action: any) {
   switch (action.type) {
     case FETCH_POSTS:
       return { ...state, loading: true };

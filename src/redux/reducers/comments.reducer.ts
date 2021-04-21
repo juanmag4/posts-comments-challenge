@@ -7,7 +7,7 @@ const INITIAL_STATE = {
   userGeneratedComments: []
 };
 
-export default function (state: ICommentState = INITIAL_STATE, action: IAction) {
+export default function commentsReducer (state: ICommentState = INITIAL_STATE, action: IAction) {
   switch (action.type) {
     case FETCH_COMMENTS:
       return { ...state, loading: true };
