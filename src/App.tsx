@@ -14,8 +14,8 @@ function App() {
   return (
     <Router>
       <div className="ui container">
-        <div>
-          <Link to="/">POSTS</Link>
+        <div className="ui one item menu">
+          <Link to="/" className="active item">Posts</Link>
         </div>
         <Switch>
           <Route path="/add-comment/:postId">

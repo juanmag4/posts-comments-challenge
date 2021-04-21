@@ -1,7 +1,8 @@
+import { AppDispatch } from '..';
 import axios from '../axios.instance';
 import { FETCH_POSTS, FETCH_POSTS_FAIL, FETCH_POSTS_SUCCESS } from './types';
 
-export const fetchPosts = () => async (dispatch: any) => {
+export const fetchPosts = () => async (dispatch: AppDispatch) => {
   dispatch({ type: FETCH_POSTS });
 
   try {

@@ -1,3 +1,4 @@
+import { IPostsState } from "../../interfaces/redux.interfaces";
 import { FETCH_POSTS, FETCH_POSTS_FAIL, FETCH_POSTS_SUCCESS } from "../actions/types";
 
 const INITIAL_STATE = {
@@ -5,7 +6,7 @@ const INITIAL_STATE = {
   loading: false
 };
 
-export default function postReducer(state: any = INITIAL_STATE, action: any) {
+export default function postReducer(state: IPostsState = INITIAL_STATE, action: any) {
   switch (action.type) {
     case FETCH_POSTS:
       return { ...state, loading: true };

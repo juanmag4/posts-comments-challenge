@@ -1,20 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Post } from '../components/Post';
-import { IPost } from '../interfaces/posts.interfaces';
+import { Store } from '../interfaces/redux.interfaces';
+import { AppDispatch } from '../redux';
 import { fetchPosts } from '../redux/actions/posts.actions';
+import { Placeholder } from '../components/Placeholder';
 
 export const HomePage = () => {
-  const dispatch = useDispatch();
-  const { posts } = useSelector((store: any) => store.posts);
+  const dispatch: AppDispatch = useDispatch();
+  const { posts, loading } = useSelector((store: Store) => store.posts);
 
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
 
-  return (
-    <div>
-      {posts.map((post: IPost) => <Post key={post.id} {...post} />)}
-    </div>
-  )
+  if (loading) {
+    return (
+      <Placeholder />
+    );
+  } else {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {posts.map((post) => <Post key={post.id} {...post} />)}
+      </div>
+    );
+  }
 };

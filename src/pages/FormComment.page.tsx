@@ -4,11 +4,12 @@ import { useParams, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { ADD_COMMENT } from '../redux/actions/types';
 import { FormData } from '../interfaces/formComment.interfaces';
+import { AppDispatch } from '../redux';
 
 export const FormComment = () => {
   const { postId }: any = useParams();
   const history = useHistory();
-  const dispatch = useDispatch();
+  const dispatch: AppDispatch = useDispatch();
   const { register, handleSubmit } = useForm<FormData>();
 
   const onSubmit = handleSubmit(({ name, email, body }) => {
