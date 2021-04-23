@@ -20,7 +20,7 @@ export const HomePage: FC = () => {
     );
   } else {
     return (
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <div className="home-section">
         {posts.map((post) => <Post key={post.id} {...post} />)}
       </div>
     );

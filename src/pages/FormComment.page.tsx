@@ -7,6 +7,7 @@ import * as yup from "yup";
 import { ADD_COMMENT } from '../redux/actions/types';
 import { FormData } from '../interfaces/formComment.interfaces';
 import { AppDispatch } from '../redux';
+import { IParams } from '../interfaces/common.interfaces';
 
 const schema = yup.object().shape({
   name: yup.string().required().max(50),
@@ -15,7 +16,7 @@ const schema = yup.object().shape({
 });
 
 export const FormComment: FC = () => {
-  const { postId }: any = useParams();
+  const { postId }: IParams = useParams();
   const history = useHistory();
   const dispatch: AppDispatch = useDispatch();
   const { register, handleSubmit, formState: { errors }  } = useForm<FormData>({

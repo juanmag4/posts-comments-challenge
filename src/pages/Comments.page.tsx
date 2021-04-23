@@ -6,9 +6,10 @@ import { fetchComments } from '../redux/actions/comments.actions';
 import { Store } from '../interfaces/redux.interfaces';
 import { AppDispatch } from '../redux';
 import { Placeholder } from '../components/Placeholder';
+import { IParams } from '../interfaces/common.interfaces';
 
 export const CommentsPage: FC = () => {
-  const { postId }: any = useParams();
+  const { postId }: IParams = useParams();
   const dispatch: AppDispatch = useDispatch();
   const { comments, loading } = useSelector((store: Store) => store.comments);
 
