@@ -23,7 +23,7 @@ The user generated comments will be stored until the tab is reloaded.
 
 ### Steps to run the project
 
-git clone https://github.com/juanmag4/posts-comments-challenge.git\
+git clone https://github.com/juanmag4/posts-comments-challenge.git \
 cd posts-comments-challenge\
 npm install\
 npm start

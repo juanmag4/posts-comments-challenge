@@ -13,7 +13,7 @@ export const Post: FC<IPost> = ({ body, title, id }) => {
       </div>
       <div className="extra content">
         <div className="post-button-section">
-          <Link to={`/comments/${id}`} className="ui button">See Comments</Link>
+          <Link to={`/comments/${id}`} className="ui button">Show Comments</Link>
           <Link to={`/add-comment/${id}`} className="ui button">Add Comments</Link>
         </div>
       </div>
